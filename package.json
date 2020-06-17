@@ -1,0 +1,42 @@
+{
+  "name": "pixijs-loader-util",
+  "version": "0.1.0",
+  "description": "Asset load helper for pixi.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "module": "./esm/index.js",
+  "repository": "https://MasatoMakino@github.com/MasatoMakino/pixijs-loader-util.git",
+  "author": "MasatoMakino <unagiinu.g@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.0.13",
+    "dat.gui": "^0.7.7",
+    "gulp": "^4.0.2",
+    "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page.git",
+    "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
+    "gulptask-tsc": "https://github.com/MasatoMakino/gulptask-tsc.git",
+    "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
+    "husky": "^4.2.5",
+    "pixi.js": "^5.2.4",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "serve": "^11.3.2",
+    "ts-node": "^8.9.1",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "pixi.js": "^5.2.4"
+  },
+  "scripts": {
+    "start:dev": "gulp start_dev",
+    "build": "gulp build && npm run doc:card",
+    "build:clean": "gulp build_clean && npm run doc:card",
+    "checkout:docs": "git checkout HEAD ./docs/",
+    "doc:card": "repoimg -n MasatoMakino/pixijs-loader-util -o ./docs/card.png"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
