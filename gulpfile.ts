@@ -1,7 +1,9 @@
 const { parallel, series } = require("gulp");
 
 const doc = require("gulptask-tsdoc").get();
-const server = require("gulptask-dev-server").get("./docs/demo");
+const server = require("gulptask-dev-server").get("./docs/demo", {
+  usePhpDevServer: false,
+});
 const { bundleDemo, watchDemo } = require("gulptask-demo-page").get({
   externalScripts: [],
   copyTargets: ["png", "jpg", "jpeg", "mp4"],
