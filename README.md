@@ -3,6 +3,7 @@
 Asset load helper for pixi.js
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e1436df54e3d2b518c2e/maintainability)](https://codeclimate.com/github/MasatoMakino/pixijs-loader-util/maintainability)
 
 [Github repository](https://github.com/MasatoMakino/pixijs-loader-util)
 
