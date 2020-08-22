@@ -5,7 +5,7 @@ Asset load helper for pixi.js
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e1436df54e3d2b518c2e/maintainability)](https://codeclimate.com/github/MasatoMakino/pixijs-loader-util/maintainability)
 
-[Github repository](https://github.com/MasatoMakino/pixijs-loader-util)
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=MasatoMakino&repo=pixijs-loader-util&show_owner=true)](https://github.com/MasatoMakino/pixijs-loader-util)
 
 ## Demo
 
@@ -41,4 +41,4 @@ import { fetchImage, loadAutoPlayableMovie } from "pixijs-loader-util";
 
 ## License
 
-pixijs-loader-util is [MIT licensed](LICENSE).
+[MIT license](LICENSE).
