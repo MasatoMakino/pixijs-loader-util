@@ -1,15 +1,19 @@
 const { parallel, series } = require("gulp");
 
-const doc = require("gulptask-tsdoc").get();
-const server = require("gulptask-dev-server").get("./docs/demo", {
+const doc = require("gulptask-tsdoc").generateTask();
+const server = require("gulptask-dev-server").generateTask("./docs/demo", {
   usePhpDevServer: false,
 });
-const { bundleDemo, watchDemo } = require("gulptask-demo-page").get({
+const {
+  bundleDemo,
+  cleanDemo,
+  watchDemo,
+} = require("gulptask-demo-page").generateTasks({
   externalScripts: [],
   copyTargets: ["png", "jpg", "jpeg", "mp4"],
 });
 
-const { tsc, tscClean, watchTsc } = require("gulptask-tsc").get({
+const { tsc, tscClean, watchTsc } = require("gulptask-tsc").generateTasks({
   projects: ["tsconfig.cjs.json", "tsconfig.esm.json"],
 });
 
@@ -19,6 +23,5 @@ const watchTasks = async () => {
 };
 
 exports.start_dev = series(watchTasks, server);
-const bundle = parallel(bundleDemo, doc);
-exports.build = series(tsc, bundle);
-exports.build_clean = series(tscClean, bundle);
+exports.build = series(tsc, parallel(bundleDemo, doc));
+exports.build_clean = series(tscClean, parallel(cleanDemo, doc));
