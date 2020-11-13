@@ -2,11 +2,8 @@ const { Builder, Capabilities, logging } = require("selenium-webdriver");
 
 const pref = new logging.Preferences();
 pref.setLevel(logging.Type.BROWSER, logging.Level.DEBUG);
-const capabilities = Capabilities.chrome();
-capabilities.setLoggingPrefs(pref);
 
-const testImageLoad = async () => {
-  const driver = await new Builder().withCapabilities(capabilities).build();
+const testImageLoad = async (driver) => {
   try {
     await driver.get(
       "https://masatomakino.github.io/pixijs-loader-util/demo/demo_fetchImage.html"
@@ -41,4 +38,26 @@ const outputLog = async (driver) => {
   });
 };
 
-testImageLoad();
+const testWithChrome = () => {
+  const capabilities = Capabilities.chrome();
+  capabilities.setLoggingPrefs(pref);
+  const driver = new Builder().withCapabilities(capabilities).build();
+  testImageLoad(driver);
+};
+testWithChrome();
+
+const testWithSafari = () => {
+  const capabilities = Capabilities.safari();
+  capabilities.setLoggingPrefs(pref);
+  const driver = new Builder().withCapabilities(capabilities).build();
+  testImageLoad(driver);
+};
+testWithSafari();
+
+const testWithFirefox = () => {
+  const capabilities = Capabilities.firefox();
+  capabilities.setLoggingPrefs(pref);
+  const driver = new Builder().withCapabilities(capabilities).build();
+  testImageLoad(driver);
+};
+testWithFirefox();
