@@ -8,6 +8,10 @@
   "repository": "https://MasatoMakino@github.com/MasatoMakino/pixijs-loader-util.git",
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
+  "files": [
+    "lib",
+    "esm"
+  ],
   "devDependencies": {
     "@types/node": "^17.0.41",
     "dat.gui": "^0.7.9",
