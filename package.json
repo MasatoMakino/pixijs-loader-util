@@ -36,10 +36,5 @@
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "npx tsc -W --incremental --project tsconfig.cjs.json & npx tsc -W --incremental --project tsconfig.esm.json",
     "selenium": "node ./selenium/test.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
