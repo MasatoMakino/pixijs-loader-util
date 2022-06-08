@@ -1,6 +1,6 @@
 import { Sprite } from "pixi.js";
 import { initApp } from "./common";
-import { loadAutoPlayableMovie } from "../lib";
+import { loadAutoPlayableMovie } from "..";
 
 const onDomContentsLoaded = () => {
   const W = 800;
