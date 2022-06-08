@@ -1,6 +1,6 @@
 import { Sprite } from "pixi.js";
 import { initApp, initLink } from "./common";
-import { fetchImage } from "../lib";
+import { fetchImage } from "..";
 
 window.onFetch = false;
 window.posX = 0;
