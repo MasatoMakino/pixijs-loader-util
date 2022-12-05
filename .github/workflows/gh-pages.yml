@@ -23,7 +23,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run buildTS
-      - name: Genarate API Pages
+      - name: Generate API Pages
         run: npm run typedocs
       - name: Generate Demo Pages
         run: npm run demo
