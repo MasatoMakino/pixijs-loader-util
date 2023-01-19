@@ -38,26 +38,11 @@ const outputLog = async (driver) => {
   });
 };
 
-const testWithChrome = () => {
-  const capabilities = Capabilities.chrome();
+const testWithBrowserCapabilities = (capabilities) => {
   capabilities.setLoggingPrefs(pref);
   const driver = new Builder().withCapabilities(capabilities).build();
   testImageLoad(driver);
 };
-testWithChrome();
-
-const testWithSafari = () => {
-  const capabilities = Capabilities.safari();
-  capabilities.setLoggingPrefs(pref);
-  const driver = new Builder().withCapabilities(capabilities).build();
-  testImageLoad(driver);
-};
-testWithSafari();
-
-const testWithFirefox = () => {
-  const capabilities = Capabilities.firefox();
-  capabilities.setLoggingPrefs(pref);
-  const driver = new Builder().withCapabilities(capabilities).build();
-  testImageLoad(driver);
-};
-testWithFirefox();
+testWithBrowserCapabilities(Capabilities.chrome());
+testWithBrowserCapabilities(Capabilities.safari());
+testWithBrowserCapabilities(Capabilities.firefox());
