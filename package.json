@@ -35,11 +35,11 @@
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo",
     "demo": "npx @masatomakino/gulptask-demo-page --copyTargets png jpg jpeg mp4",
-    "buildTS": "npx tsc --project tsconfig.cjs.json & npx tsc --project tsconfig.esm.json",
+    "buildTS": "tsc --project tsconfig.cjs.json & tsc --project tsconfig.esm.json",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
     "server": "npx @masatomakino/gulptask-dev-server -b ./docs/demo",
     "watch:demo": "npm run demo -- -W",
-    "watch:tsc": "npx tsc -W --incremental --project tsconfig.cjs.json & npx tsc -W --incremental --project tsconfig.esm.json",
+    "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json",
     "selenium": "node ./selenium/test.js"
   }
 }
