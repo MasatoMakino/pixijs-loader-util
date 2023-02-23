@@ -16,7 +16,6 @@
     "@masatomakino/gulptask-demo-page": "0.6.0",
     "@types/node": "^18.14.0",
     "browser-sync": "^2.27.11",
-    "dat.gui": "^0.7.9",
     "husky": "^8.0.3",
     "pixi.js": "^7.1.2",
     "prettier": "^2.8.4",
