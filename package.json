@@ -1,6 +1,6 @@
 {
   "name": "@masatomakino/pixijs-loader-util",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Asset load helper for pixi.js",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
