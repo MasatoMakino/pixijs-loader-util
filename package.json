@@ -14,8 +14,8 @@
   ],
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "0.6.0",
-    "@masatomakino/gulptask-dev-server": "0.4.2",
     "@types/node": "^18.14.0",
+    "browser-sync": "^2.27.11",
     "dat.gui": "^0.7.9",
     "husky": "^8.0.3",
     "pixi.js": "^7.1.2",
@@ -37,7 +37,7 @@
     "demo": "npx @masatomakino/gulptask-demo-page --copyTargets png jpg jpeg mp4",
     "buildTS": "tsc --project tsconfig.cjs.json & tsc --project tsconfig.esm.json",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
-    "server": "npx @masatomakino/gulptask-dev-server -b ./docs/demo",
+    "server": "browser-sync ./docs/demo -w",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json",
     "selenium": "node ./selenium/test.js"
