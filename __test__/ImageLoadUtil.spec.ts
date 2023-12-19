@@ -1,4 +1,5 @@
 import { fetchImage } from "../src/ImageLoadUtil";
+import { loadAutoPlayableMovie } from "../src/MovieLoadUtil";
 import { describe, test, expect } from "vitest";
 import { Sprite } from "pixi.js";
 import { TestImage } from "./TestImage";
@@ -42,5 +43,14 @@ describe("ImageLoadUtil", () => {
 
     const loadedImage = await fetchImage(sprite);
     expect(loadedImage.texture.baseTexture.width).not.toBe(0);
+  });
+});
+
+describe("MovieLoadUtil", () => {
+  test("Load movie", async () => {
+    const video = loadAutoPlayableMovie(
+      "demoSrc/severe-storm-over-mandurah.mp4"
+    );
+    expect(video).toBeTruthy();
   });
 });
