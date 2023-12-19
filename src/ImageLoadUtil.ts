@@ -6,13 +6,19 @@ import { Sprite } from "pixi.js";
  *
  * @param sprite
  */
-export function fetchImage(sprite: Sprite): Promise<Sprite> {
+export function fetchImage(sprite: Sprite): Promise<Sprite | Error> {
   return new Promise((resolve, reject) => {
     if (sprite.texture.baseTexture.width !== 0) {
       resolve(sprite);
     } else {
       sprite.texture.baseTexture.once("loaded", () => {
         resolve(sprite);
+      });
+      sprite.texture.baseTexture.once("update", () => {
+        resolve(sprite);
+      });
+      sprite.texture.baseTexture.once("error", (e) => {
+        reject(e);
       });
     }
   });
