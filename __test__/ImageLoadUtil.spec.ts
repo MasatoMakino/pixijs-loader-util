@@ -1,5 +1,4 @@
 import { fetchImage } from "../src/ImageLoadUtil";
-import { loadAutoPlayableMovie } from "../src/MovieLoadUtil";
 import { describe, test, expect } from "vitest";
 import { Sprite } from "pixi.js";
 import { TestImage } from "./TestImage";
@@ -11,6 +10,13 @@ describe("ImageLoadUtil", () => {
         expect(sprite.texture.baseTexture.width).not.toBe(0);
         resolve();
       });
+      sprite.texture.baseTexture.once("update", () => {
+        expect(sprite.texture.baseTexture.width).not.toBe(0);
+        resolve();
+      });
+      sprite.texture.baseTexture.once("error", (e) => {
+        throw e;
+      });
     });
   };
 
@@ -20,11 +26,11 @@ describe("ImageLoadUtil", () => {
 
     const promise = fetchImage(sprite);
     await onLoadImage(sprite);
-    const loadedImage = await promise;
+    const loadedImage = (await promise) as Sprite;
     expect(loadedImage.texture.baseTexture.width).not.toBe(0);
-  });
+  }, 500);
 
-  test("Image loading sets texture size after the first load", async () => {
+  test("Image loading sets texture size after the first load", () => {
     const sprite = Sprite.from(TestImage);
     expect(sprite.texture.baseTexture.width).not.toBe(0);
   });
@@ -35,22 +41,13 @@ describe("ImageLoadUtil", () => {
       const sprite = Sprite.from(TestImage);
       await onLoadImage(sprite);
     },
-    1000
+    300
   );
 
   test("Ensures load completion even for cached images", async () => {
     const sprite = Sprite.from(TestImage);
 
-    const loadedImage = await fetchImage(sprite);
+    const loadedImage = (await fetchImage(sprite)) as Sprite;
     expect(loadedImage.texture.baseTexture.width).not.toBe(0);
-  });
-});
-
-describe("MovieLoadUtil", () => {
-  test("Load movie", async () => {
-    const video = loadAutoPlayableMovie(
-      "demoSrc/severe-storm-over-mandurah.mp4"
-    );
-    expect(video).toBeTruthy();
-  });
+  }, 500);
 });
