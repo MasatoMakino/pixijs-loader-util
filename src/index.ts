@@ -1,2 +1,2 @@
-export * from "./ImageLoadUtil";
-export * from "./MovieLoadUtil";
+export * from "./ImageLoadUtil.js";
+export * from "./MovieLoadUtil.js";

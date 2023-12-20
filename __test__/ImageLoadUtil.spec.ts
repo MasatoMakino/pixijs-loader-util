@@ -1,7 +1,7 @@
-import { fetchImage } from "../src/ImageLoadUtil";
+import { fetchImage } from "../src/ImageLoadUtil.js";
 import { describe, test, expect } from "vitest";
 import { Sprite } from "pixi.js";
-import { TestImage } from "./TestImage";
+import { TestImage } from "./TestImage.js";
 
 describe("ImageLoadUtil", () => {
   const onLoadImage = async (sprite: Sprite): Promise<void> => {
@@ -41,7 +41,7 @@ describe("ImageLoadUtil", () => {
       const sprite = Sprite.from(TestImage);
       await onLoadImage(sprite);
     },
-    300
+    300,
   );
 
   test("Ensures load completion even for cached images", async () => {

@@ -2,16 +2,22 @@
   "name": "@masatomakino/pixijs-loader-util",
   "version": "0.2.1",
   "description": "Asset load helper for pixi.js",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "module": "./esm/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      }
+    }
+  },
+  "types": "./esm/index.d.ts",
+  "files": [
+    "esm"
+  ],
   "repository": "https://MasatoMakino@github.com/MasatoMakino/pixijs-loader-util.git",
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
-  "files": [
-    "lib",
-    "esm"
-  ],
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "^0.8.0",
     "@types/node": "^20.10.5",
@@ -41,11 +47,11 @@
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo",
     "demo": "npx @masatomakino/gulptask-demo-page --copyTargets png jpg jpeg mp4",
-    "buildTS": "tsc --project tsconfig.cjs.json & tsc --project tsconfig.esm.json",
+    "buildTS": "tsc",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
     "server": "browser-sync ./docs/demo -w",
     "watch:demo": "npm run demo -- -W",
-    "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json",
+    "watch:tsc": "tsc -W --incremental",
     "selenium": "node ./selenium/test.js"
   },
   "lint-staged": {
