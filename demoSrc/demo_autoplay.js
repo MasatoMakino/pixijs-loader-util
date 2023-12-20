@@ -1,6 +1,6 @@
 import { Sprite } from "pixi.js";
-import { initApp } from "./common";
-import { loadAutoPlayableMovie } from "..";
+import { initApp } from "./common.js";
+import { loadAutoPlayableMovie } from "../esm/index.js";
 
 const onDomContentsLoaded = () => {
   const W = 800;

@@ -25,5 +25,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - run: npx tsc --project tsconfig.cjs.json --noEmit && npx tsc --project tsconfig.esm.json --noEmit
+      - run: npx tsc --noEmit
       - run: npx vitest --run

@@ -1,10 +1,10 @@
-import { loadAutoPlayableMovie } from "../src/MovieLoadUtil";
+import { loadAutoPlayableMovie } from "../src/MovieLoadUtil.js";
 import { describe, test, expect } from "vitest";
 
 describe("MovieLoadUtil", () => {
   test("Load movie", () => {
     const video = loadAutoPlayableMovie(
-      "demoSrc/severe-storm-over-mandurah.mp4"
+      "demoSrc/severe-storm-over-mandurah.mp4",
     );
     expect(video).toBeTruthy();
   });
