@@ -16,17 +16,11 @@ Asset load helper for pixi.js
 
 ### Install
 
-pixijs-loader-util depend on [pixi.js](https://github.com/pixijs/pixi.js)
-
-```bash
-npm install pixi.js --save-dev
-```
-
-and
-
 ```bash
 npm install @masatomakino/pixijs-loader-util --save-dev
 ```
+
+pixijs-loader-util depend on [pixi.js](https://github.com/pixijs/pixi.js)
 
 ### Import
 
