@@ -28,8 +28,6 @@
     "jsdom": "^23.0.1",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
-    "selenium-webdriver": "^4.13.0",
-    "ts-node": "^10.9.1",
     "typedoc": "^0.25.4",
     "typescript": "^5.3.3",
     "vitest": "^1.0.4"
@@ -52,7 +50,6 @@
     "server": "browser-sync ./docs/demo -w",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental",
-    "selenium": "node ./selenium/test.js",
     "preversion": "git checkout main && git pull && npm ci && npm run build && npm test -- --run",
     "postversion": "git add package.json package-lock.json && git checkout -b version/$(git describe --tags --abbrev=0)"
   },
