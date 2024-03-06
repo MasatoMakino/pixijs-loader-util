@@ -2,12 +2,12 @@ import { Sprite } from "pixi.js";
 import { initApp } from "./common.js";
 import { loadAutoPlayableMovie } from "../esm/index.js";
 
-const onDomContentsLoaded = () => {
+const onDomContentsLoaded = async () => {
   const W = 800;
   const H = 600;
-  const app = initApp(W, H);
+  const app = await initApp(W, H);
 
-  const video = loadAutoPlayableMovie("severe-storm-over-mandurah.mp4");
+  const video = await loadAutoPlayableMovie("severe-storm-over-mandurah.mp4");
   const sprite = Sprite.from(video);
   sprite.scale.set(W / 1080);
   app.stage.addChild(sprite);
