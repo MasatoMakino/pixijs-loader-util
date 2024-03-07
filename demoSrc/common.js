@@ -1,8 +1,10 @@
 import { Application } from "pixi.js";
 
-export function initApp(w = 800, h = 600) {
-  const app = new Application({ width: w, height: h });
-  document.body.appendChild(app.view);
+export async function initApp(w = 800, h = 600) {
+  const app = new Application();
+  await app.init({ width: w, height: h });
+  document.body.appendChild(app.canvas);
+
   return app;
 }
 
