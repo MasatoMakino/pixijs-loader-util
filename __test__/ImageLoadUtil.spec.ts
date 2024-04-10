@@ -4,8 +4,8 @@ import { TestImage } from "./TestImage.js";
 
 describe("ImageLoadUtil", () => {
   test("Load image", async () => {
-    await Assets.load(TestImage);
-    const sprite = Sprite.from(TestImage);
+    const textures = await Assets.load(TestImage);
+    const sprite = Sprite.from(textures);
     expect(sprite.width).toBe(8);
   }, 500);
 });
